@@ -64,6 +64,7 @@ A estrutura foi desenhada com **separação clara de responsabilidades** e **alt
 ## Decisões Técnicas e Boas Práticas
 
 | Categoria | Descrição |
+|--------|------------|
 | **Separação de responsabilidades** | Controllers lidam com requisições, Services com lógica de negócio, e Database com persistência. |
 | **Arquitetura modular** | Cada parte da aplicação é independente e testável. |
 | **Tolerância a falhas** | Try/catch robusto, códigos HTTP adequados e logs descritivos. |
