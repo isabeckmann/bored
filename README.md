@@ -69,20 +69,20 @@ A estrutura foi desenhada com **separação clara de responsabilidades** e **alt
 ### 🔹 Diagrama Simplificado
 
 text
-[Cliente/Postman/Navegador]
+- [Cliente/Postman/Navegador]
         │   Requisição HTTP (GET)
         ▼
-[Controller Layer]
+- [Controller Layer]
         │   Chama serviço de integração
         ▼
-[Service Layer]
+- [Service Layer]
         │   Consome API externa (Bored API)
         │   Valida / formata resposta
         ▼
-[Data Access Layer]
+- [Data Access Layer]
         │   Salva no banco SQLite
         ▼
-[Database (bored_api_history.sqlite)]
+- [Database (bored_api_history.sqlite)]
 
 ---
 
