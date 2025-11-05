@@ -110,3 +110,40 @@ npm test
 | **GET** | `/api/atividade/:type` | Retorna uma atividade por tipo (ex: education) |
 | **GET** | `/api/historico` | Lista o histórico de atividades |
 | **GET** | `/` | Verifica se o serviço está no ar |
+
+## Fundamentação Teórica e Referências Bibliográficas
+
+A elaboração deste projeto baseou-se em boas práticas de desenvolvimento de software e nas documentações oficiais das tecnologias utilizadas, conforme orientações de padrões arquiteturais, testes automatizados e integração de serviços.  
+As referências a seguir reúnem as principais fontes teóricas e técnicas que sustentam a construção do **Bored API Service**.
+
+### Referências
+
+**BASS, L.; CLEMENTS, P.; KAZMAN, R.** *Software Architecture in Practice*. 4. ed. Boston: Addison-Wesley, 2021.
+
+**FIELDING, R. T.** *Architectural Styles and the Design of Network-based Software Architectures*. 2000. Tese (Doutorado em Filosofia da Informação e Ciência da Computação) – University of California, Irvine. Disponível em: <https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm>. Acesso em: nov. 2025.
+
+**FOWLER, M.** *Patterns of Enterprise Application Architecture*. Boston: Addison-Wesley, 2002.
+
+**SOMMERVILLE, I.** *Engenharia de Software*. 10. ed. São Paulo: Pearson Education, 2020.
+
+**NODE.JS FOUNDATION.** *Node.js Documentation*. Disponível em: <https://nodejs.org/en/docs>. Acesso em: nov. 2025.
+
+**EXPRESS.JS TEAM.** *Express.js – Web framework for Node.js*. Disponível em: <https://expressjs.com/pt-br/>. Acesso em: nov. 2025.
+
+**SQLITE CONSORTIUM.** *SQLite Documentation*. Disponível em: <https://www.sqlite.org/docs.html>. Acesso em: nov. 2025.
+
+**JEST.** *Jest – Testing Framework*. Disponível em: <https://jestjs.io/docs/getting-started>. Acesso em: nov. 2025.
+
+**SUPERTEST.** *Supertest – HTTP assertions made easy*. Disponível em: <https://github.com/ladjs/supertest>. Acesso em: nov. 2025.
+
+**NOCK.** *Nock – HTTP server mocking and expectations library for Node.js*. Disponível em: <https://github.com/nock/nock>. Acesso em: nov. 2025.
+
+**DOTENV.** *dotenv – Zero-dependency module that loads environment variables*. Disponível em: <https://github.com/motdotla/dotenv>. Acesso em: nov. 2025.
+
+**CORS MIDDLEWARE.** *CORS for Express.js*. Disponível em: <https://github.com/expressjs/cors>. Acesso em: nov. 2025.
+
+**THE APP BREWERY.** *Bored API*. Disponível em: <https://www.boredapi.com/>. Acesso em: nov. 2025.
+
+**MOZILLA DEVELOPER NETWORK (MDN).** *JavaScript Guide e API Reference*. Disponível em: <https://developer.mozilla.org/pt-BR/docs/Web/JavaScript>. Acesso em: nov. 2025.
+
+**STEMMLER, K.** *Clean Architecture for Node.js (artigo)*. Disponível em: <https://khalilstemmler.com/articles/enterprise-typescript-nodejs/clean-nodejs-architecture/>. Acesso em: nov. 2025.
