@@ -13,13 +13,11 @@ const DB_PATH = process.env.DB_PATH || './bored_api_history.sqlite';
  */
 export async function initDb() {
     try {
-        // Usa o driver sqlite3 e o pacote 'sqlite' para promisify
         db = await open({
             filename: DB_PATH,
             driver: sqlite3.Database
         });
 
-        // Cria a tabela de histórico se ela não existir
         await db.exec(`
             CREATE TABLE IF NOT EXISTS historico (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -51,7 +49,7 @@ export async function closeDb() {
 
 /**
  * Salva uma atividade consultada no histórico.
- * @param {string | null} tipo O tipo de atividade consultada (pode ser null para aleatória).
+ * @param {string | null} tipo 
  * @param {object} resposta O objeto JSON da atividade.
  */
 export async function salvarHistorico(tipo, resposta) { // <-- EXPORT CORRETO AQUI
@@ -70,16 +68,13 @@ export async function salvarHistorico(tipo, resposta) { // <-- EXPORT CORRETO AQ
  * Lista todo o histórico de consultas.
  * @returns {Promise<Array<object>>} Lista de registros do histórico.
  */
-export async function listarHistorico() { // <-- EXPORT CORRETO AQUI
+export async function listarHistorico() { 
     if (!db) {
         await initDb();
     }
     const results = await db.all("SELECT * FROM historico ORDER BY data_consulta DESC");
 
-    // Faz o parse do campo 'resposta' de volta para objeto JSON
     return results.map(row => {
-        // Seu código original já incluía o parse aqui, mas o historicoController também fazia.
-        // É mais limpo que a camada DB retorne o objeto já parseado.
         return {
             ...row,
             resposta: JSON.parse(row.resposta)
@@ -87,8 +82,4 @@ export async function listarHistorico() { // <-- EXPORT CORRETO AQUI
     });
 }
 
-// Exporta a instância do banco de dados (que é o objeto retornado por open()) e as funções
 export { db };
-// Note: As funções já estão exportadas acima, então esta linha final é apenas para a instância 'db'.
-// Manter a exportação nomeada em cada função (export async function...) é a maneira mais limpa
-// quando se usa type: "module".

@@ -1,4 +1,3 @@
-// activityService.js - Lógica de Negócio e Tolerância a Falhas
 const MAX_RETRIES = 2;
 
 /**
@@ -13,20 +12,14 @@ class ActivityService {
         this.dbService = dbService;
     }
 
-    /**
-     * Busca uma atividade na API, aplicando Tolerância a Falhas (retentativas).
-     * (Critério: API consumida e tolerância a falhas)
-     */
     async fetchActivity() {
         const payload = { type: 'random_activity_request' };
         let result;
 
         for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
             try {
-                // Chama a API da Atividade
                 result = await this.boredApiService.getActivity();
                 
-                // Persiste o sucesso
                 await this.dbService.saveQuery('new_activity', payload, result);
                 return { success: true, data: result };
 
@@ -34,23 +27,17 @@ class ActivityService {
                 console.warn(`[Service] Tentativa ${attempt + 1}/${MAX_RETRIES} falhou: ${error.message}`);
                 
                 if (attempt === MAX_RETRIES - 1) {
-                    // Se for a última tentativa, registra a falha final
                     console.error("[Service] Todas as retentativas falharam. Registrando falha final.");
                     result = { error: `Falha ao obter atividade após ${MAX_RETRIES} tentativas: ${error.message}` };
                     await this.dbService.saveQuery('new_activity_fail', payload, result);
                     return { success: false, error: result.error, status: 503 };
                 }
                 
-                // Espera um pouco antes de tentar novamente
                 await new Promise(resolve => setTimeout(resolve, 500 * (attempt + 1))); 
             }
         }
     }
 
-    /**
-     * Recupera o histórico de consultas salvas.
-     * (Critério: Atender os requisitos - Dados persistidos)
-     */
     async getQueryHistory() {
         try {
             const history = await this.dbService.getHistory();
@@ -62,5 +49,4 @@ class ActivityService {
     }
 }
 
-// CORREÇÃO: Usando export default para Módulos ES (ESM)
 export default ActivityService;
