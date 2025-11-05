@@ -1,11 +1,12 @@
 import sqlite3 from 'sqlite3';
 import { open } from 'sqlite';
 import * as dotenv from 'dotenv';
+import path from 'path';
 
 dotenv.config();
 
 let db;
-const DB_PATH = process.env.DB_PATH || './bored_api_history.sqlite';
+const DB_PATH = process.env.DB_PATH || path.resolve('./db/bored_api_history.sqlite');
 
 /**
  * Inicializa a conexão com o banco de dados SQLite e cria a tabela de histórico.
@@ -37,8 +38,6 @@ export async function initDb() {
 
 /**
  * Fecha a conexão com o banco de dados.
- * Usado primariamente para limpeza em ambientes de teste.
- * @returns {Promise<void>}
  */
 export async function closeDb() {
     if (db) {
@@ -50,9 +49,9 @@ export async function closeDb() {
 /**
  * Salva uma atividade consultada no histórico.
  * @param {string | null} tipo 
- * @param {object} resposta O objeto JSON da atividade.
+ * @param {object} resposta 
  */
-export async function salvarHistorico(tipo, resposta) { // <-- EXPORT CORRETO AQUI
+export async function salvarHistorico(tipo, resposta) {
     if (!db) {
         await initDb();
     }
@@ -66,7 +65,7 @@ export async function salvarHistorico(tipo, resposta) { // <-- EXPORT CORRETO AQ
 
 /**
  * Lista todo o histórico de consultas.
- * @returns {Promise<Array<object>>} Lista de registros do histórico.
+ * @returns {Promise<Array<object>>} 
  */
 export async function listarHistorico() { 
     if (!db) {
@@ -74,12 +73,10 @@ export async function listarHistorico() {
     }
     const results = await db.all("SELECT * FROM historico ORDER BY data_consulta DESC");
 
-    return results.map(row => {
-        return {
-            ...row,
-            resposta: JSON.parse(row.resposta)
-        };
-    });
+    return results.map(row => ({
+        ...row,
+        resposta: JSON.parse(row.resposta)
+    }));
 }
 
 export { db };
