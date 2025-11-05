@@ -18,6 +18,8 @@ O **Bored API Service** é um microserviço Node.js/Express que consome a API p�
 
 Cada atividade consultada é **salva em um banco de dados SQLite** local, permitindo histórico de consultas e testes de resiliência a falhas externas.
 
+---
+
 ## Contexto de Negócio
 
 O serviço se propõe a ajudar usuários indecisos a encontrarem atividades para fazer no tempo livre, com base em sugestões da Bored API.
@@ -27,11 +29,16 @@ Este contexto pode ser expandido para:
 - **Aplicativos de bem-estar** (ex: dicas de lazer)
 - **Plataformas educacionais** (ex: sugestões de estudo)
 
+---
+
 ## Padrão Arquitetural e de Comunicação
+
 | Tipo | Descrição |
 | **Padrão Arquitetural** | Arquitetura em **camadas (MVC simplificado)**, separando **Controllers**, **Services**, e **Database Access Layer**. |
 | **Padrão de Comunicação** | Comunicação **HTTP RESTful** com endpoints organizados e padronizados. |
 | **Padrão de Integração Externa** | Consumo de API REST via `fetch`, com tratamento de erros e retries. |
+
+---
 
 ## Funcionalidades Principais
 - Consumo da [Bored API](https://bored-api.appbrewery.com)
@@ -41,8 +48,12 @@ Este contexto pode ser expandido para:
 - Mock de falhas com `nock`
 - Estrutura modular e de fácil manutenção  
 
+---
+
 ## Estrutura do Projeto
 A estrutura foi desenhada com **separação clara de responsabilidades** e **alta coesão interna** entre arquivos de mesmo domínio.
+
+---
 
 ### Diagrama Simplificado
 
@@ -61,7 +72,10 @@ A estrutura foi desenhada com **separação clara de responsabilidades** e **alt
         
 - [Database (bored_api_history.sqlite)]
 
+---
+
 ## Decisões Técnicas e Boas Práticas
+
 | Categoria | Descrição |
 | **Separação de responsabilidades** | Controllers lidam com requisições, Services com lógica de negócio, e Database com persistência. |
 | **Arquitetura modular** | Cada parte da aplicação é independente e testável. |
@@ -69,6 +83,8 @@ A estrutura foi desenhada com **separação clara de responsabilidades** e **alt
 | **Injeção de dependência** | URLs da API e caminho do banco configuráveis via .env. |
 | **Boas práticas de código** | Uso de async/await, logs contextuais e funções puras. |
 | **Testabilidade** | Uso de mocks e isolamento de dependências externas. |
+
+---
 
 ## Banco de Dados (SQLite)
 
@@ -78,6 +94,8 @@ Tabela: historico
 | **tipo** | TEXT | Tipo da atividade |
 | **resposta** | TEXT | Objeto JSON completo da resposta |
 | **data_consulta** | DATETIME | Data e hora da consulta |
+
+---
 
 ##  Como Executar o Projeto
 
@@ -99,6 +117,7 @@ npm start
 ### 5️⃣ Rodar os testes
 npm test
 
+---
 ## Endpoints disponíveis
 
 | Método | Endpoint | Descrição |
