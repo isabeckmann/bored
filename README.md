@@ -85,7 +85,7 @@ Tabela: historico
 ##  Como Executar o Projeto
 
 ### 1️⃣ Clonar o repositório
-git clone https://github.com/seuusuario/bored_api_service.git
+git clone [https://github.com/isabeckmann/bored.git](https://github.com/isabeckmann/bored.git)
 cd bored_api_service
 
 ### 2️⃣ Instalar dependências
