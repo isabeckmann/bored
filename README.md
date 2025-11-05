@@ -100,6 +100,7 @@ npm start
 npm test
 
 ## Endpoints disponíveis
+
 | Método | Endpoint | Descrição |
 | **GET** | /api/atividade | Retorna uma atividade aleatória |
 | **GET** | /api/atividade/:type | Retorna uma atividade por tipo (ex: education) |
