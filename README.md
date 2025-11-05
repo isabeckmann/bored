@@ -34,7 +34,6 @@ Este contexto pode ser expandido para:
 ## Padrão Arquitetural e de Comunicação
 
 | Tipo | Descrição |
-|------|------------|
 | **Padrão Arquitetural** | Arquitetura em **camadas (MVC simplificado)**, separando **Controllers**, **Services**, e **Database Access Layer**. |
 | **Padrão de Comunicação** | Comunicação **HTTP RESTful** com endpoints organizados e padronizados. |
 | **Padrão de Integração Externa** | Consumo de API REST via `fetch`, com tratamento de erros e retries. |
@@ -78,7 +77,6 @@ A estrutura foi desenhada com **separação clara de responsabilidades** e **alt
 ## Decisões Técnicas e Boas Práticas
 
 | Categoria | Descrição |
-|------|------------|
 | **Separação de responsabilidades** | Controllers lidam com requisições, Services com lógica de negócio, e Database com persistência. |
 | **Arquitetura modular** | Cada parte da aplicação é independente e testável. |
 | **Tolerância a falhas** | Try/catch robusto, códigos HTTP adequados e logs descritivos. |
@@ -92,7 +90,6 @@ A estrutura foi desenhada com **separação clara de responsabilidades** e **alt
 
 Tabela: historico
 | Campo | Tipo | Descrição |
-|------|------------|-------------|
 | **id** | INTEGER | Chave primária |
 | **tipo** | TEXT | Tipo da atividade |
 | **resposta** | TEXT | Objeto JSON completo da resposta |
@@ -124,7 +121,6 @@ npm test
 ## Endpoints disponíveis
 
 | Método | Endpoint | Descrição |
-|------|------------|-------------|
 | **GET** | /api/atividade | Retorna uma atividade aleatória |
 | **GET** | /api/atividade/:type | Retorna uma atividade por tipo (ex: education) |
 | **GET** | /api/historico | Lista o histórico de atividades |
