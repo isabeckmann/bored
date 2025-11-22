@@ -18,7 +18,10 @@ Cada atividade consultada é **salva em um banco de dados SQLite** local, permit
 
 ## Contexto de Negócio
 
-O serviço se propõe a ajudar usuários indecisos a encontrarem atividades para fazer no tempo livre, com base em sugestões da Bored API. O contexto de negócio é classificado como <b>EAI — Enterprise Application Integration</b>, com integração a uma API pública e externa, integrando as informações em um sistema interno, aplicando lógica de negócio, persistência de dados local utilizando SQLite, demonstrando os endpoints e fornecendo o histórico e tratamento de falhas. Esse fluxo caracteriza uma integração entre aplicações dentro de um ecossistema interno (cliente local, microserviço, banco).
+O serviço se propõe a ajudar usuários indecisos a encontrarem atividades para fazer no tempo livre, com base em sugestões da Bored API.
+No contexto de integração, este projeto é classificado como uma B2BI — Business-to-Business Integration, pois estabelece comunicação entre um sistema desenvolvido pela equipe (microserviço interno) e um serviço externo pertencente a outra organização (Bored API). Mesmo sendo uma API pública, ela representa um endpoint externo fornecido por outro negócio, caracterizando a integração interorganizacional.
+
+A aplicação integra as informações da API externa ao sistema interno, aplicando lógica de negócio, persistindo dados localmente em SQLite, expondo novos endpoints e oferecendo histórico de consultas e tratamento de falhas. Esses elementos compõem um fluxo de integração entre dois domínios diferentes, conectado de forma direta e operacional.
 
 Esse contexto pode ser expandido para:
 - **Aplicações de produtividade** (ex: pausas criativas no trabalho)
@@ -32,6 +35,7 @@ Esse contexto pode ser expandido para:
 | **Padrão Arquitetural** | Arquitetura em **camadas (MVC simplificado)**, separando **Controllers**, **Services** e **Database Access Layer**. |
 | **Padrão de Comunicação** | Comunicação **HTTP RESTful** com endpoints organizados e padronizados. |
 | **Padrão de Integração Externa** | Consumo de API REST via `fetch`, com tratamento de erros e retries. |
+| **Arquitetura de Integração** | Topologia Point-to-Point, onde o microserviço se conecta diretamente à Bored API sem intermediários. |
 
 ## Funcionalidades Principais
 - Consumo da [Bored API](https://bored-api.appbrewery.com)
