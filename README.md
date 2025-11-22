@@ -18,9 +18,9 @@ Cada atividade consultada é **salva em um banco de dados SQLite** local, permit
 
 ## Contexto de Negócio
 
-O serviço se propõe a ajudar usuários indecisos a encontrarem atividades para fazer no tempo livre, com base em sugestões da Bored API.
+O serviço se propõe a ajudar usuários indecisos a encontrarem atividades para fazer no tempo livre, com base em sugestões da Bored API. O contexto de negócio é classificado como <b>EAI — Enterprise Application Integration</b>, com integração a uma API pública e externa, integrando as informações em um sistema interno, aplicando lógica de negócio, persistência de dados local utilizando SQLite, demonstrando os endpoints e fornecendo o histórico e tratamento de falhas. Esse fluxo caracteriza uma integração entre aplicações dentro de um ecossistema interno (cliente local, microserviço, banco).
 
-Este contexto pode ser expandido para:
+Esse contexto pode ser expandido para:
 - **Aplicações de produtividade** (ex: pausas criativas no trabalho)
 - **Aplicativos de bem-estar** (ex: dicas de lazer)
 - **Plataformas educacionais** (ex: sugestões de estudo)
